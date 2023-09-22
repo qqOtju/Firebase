@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using AdMob;
 using Data;
 using Firebase.Firestore;
@@ -20,11 +19,10 @@ namespace Gameplay
         [SerializeField] private Button _leaderboardButton;
         [Header("References")] 
         [SerializeField] private AdsController _adsController;
-        [SerializeField] private Image _saveGameIcon;
         [Header("Data")] 
         [SerializeField] private SoUserData _userData;
 
-        private const float TimeBetweenSaves = 120f;
+        private const float TimeBetweenSaves = 60f;
         
         private DocumentReference _docRef;
 
@@ -44,19 +42,15 @@ namespace Gameplay
 
         private void OnApplicationPause(bool pauseStatus)
         {
-            if(pauseStatus)
-                SaveGame(false);
+            if(pauseStatus) SaveGame();
         }
 
-        private void OnApplicationQuit()
-        {
-            SaveGame(false);
-        }
+        private void OnApplicationQuit() =>
+            SaveGame();
 
         private void OnApplicationFocus(bool hasFocus)
         {
-            if(!hasFocus)
-                SaveGame(false);
+            if(!hasFocus) SaveGame();
         }
 
         private void OnClick()
@@ -81,45 +75,20 @@ namespace Gameplay
         private void ShowLeaderboard()
         {
             PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_leaderboard);
-            SaveGame(false);
+            SaveGame();
         }
 
         private void ChangeScoreText() =>
             _scoreText.text = $"{_userData.Data.Score}";
 
-        private async void SaveGame(bool anim = true)
+        private async void SaveGame()
         {
             if(_docRef == null) return;
-            PlayGamesPlatform.Instance.ReportScore(_userData.Data.Score, GPGSIds.leaderboard_leaderboard, _ => {});
-            if(anim) SaveAnimation();
+            PlayGamesPlatform.Instance.ReportScore(_userData.Data.Score, GPGSIds.leaderboard_leaderboard, success =>
+            {
+                Debug.Log($"Leaderboard Report: {success}");
+            });
             await _docRef.SetAsync(_userData.Data);
-        }
-
-        private void SaveAnimation()
-        {
-            var colorA = _saveGameIcon.color;
-            var colorB = colorA;
-            colorB.a = 0;
-            StartCoroutine(SaveAnimation(colorA, colorB));
-        }
-
-        private IEnumerator SaveAnimation(Color colorA, Color colorB)
-        {
-            var value = 0f;
-            while (value <= 1)
-            {
-                value += Time.deltaTime;
-                _saveGameIcon.color = Color.Lerp(colorA, colorB, value);
-                yield return null;
-            }
-
-            value = 1f;
-            while (value >= 0)
-            {
-                value += Time.deltaTime;
-                _saveGameIcon.color = Color.Lerp(colorA, colorB, value);
-                yield return null;
-            }
         }
 
         private IEnumerator SaveCoroutine(float time)

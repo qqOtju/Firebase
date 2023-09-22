@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "5200b76ff4cfc48d",
         "name": "com.simplegames.firebase",
-        "processId": 29822,
+        "processId": 30102,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,49 +11,37 @@
         {
             "deviceId": "5200b76ff4cfc48d",
             "name": "com.simplegames.firebase",
-            "processId": 27830,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b76ff4cfc48d",
-            "name": "com.simplegames.firebase",
-            "processId": 30515,
-            "exited": true
-        },
-        {
-            "deviceId": "5200b76ff4cfc48d",
-            "name": "com.simplegames.firebase",
-            "processId": 883,
-            "exited": false
-        },
-        {
-            "deviceId": "5200b76ff4cfc48d",
-            "name": "com.simplegames.firebase",
-            "processId": 3606,
-            "exited": false
-        },
-        {
-            "deviceId": "5200b76ff4cfc48d",
-            "name": "com.simplegames.firebase",
             "processId": 11876,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "5200b76ff4cfc48d",
             "name": "com.simplegames.firebase",
             "processId": 16591,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "5200b76ff4cfc48d",
             "name": "com.simplegames.firebase",
             "processId": 17964,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "5200b76ff4cfc48d",
             "name": "com.simplegames.firebase",
             "processId": 29822,
+            "exited": true
+        },
+        {
+            "deviceId": "5200b76ff4cfc48d",
+            "name": "com.sec.android.app.launcher",
+            "processId": 5608,
+            "exited": false
+        },
+        {
+            "deviceId": "5200b76ff4cfc48d",
+            "name": "com.simplegames.firebase",
+            "processId": 30102,
             "exited": false
         }
     ],

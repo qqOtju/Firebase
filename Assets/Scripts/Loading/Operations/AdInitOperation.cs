@@ -13,7 +13,11 @@ namespace Loading.Operations
         {
             onProgress?.Invoke(.5f);
             MobileAds.RaiseAdEventsOnUnityMainThread = true;
-            var requestConfiguration = new RequestConfiguration.Builder().SetSameAppKeyEnabled(true).build();
+            var requestConfiguration = MobileAds.GetRequestConfiguration()
+                .ToBuilder()
+                .SetTagForChildDirectedTreatment(TagForChildDirectedTreatment.True)
+                .SetMaxAdContentRating(MaxAdContentRating.G)
+                .build();
             MobileAds.SetRequestConfiguration(requestConfiguration);
             MobileAds.Initialize(_=>{});
             onProgress?.Invoke(1);

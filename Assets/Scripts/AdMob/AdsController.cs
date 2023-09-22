@@ -1,6 +1,7 @@
 ﻿using System;
 using GoogleMobileAds.Api;
 using UnityEngine;
+using Utils.Constants;
 
 namespace AdMob
 {
@@ -8,7 +9,7 @@ namespace AdMob
     {
         //my:   AdBlockId
         //test: ca-app-pub-3940256099942544/5224354917
-        private readonly string _rewardedUnitId = "ca-app-pub-3940256099942544/5224354917";
+        private readonly string _rewardedUnitId = Constants.AdBlockId;
         
         private RewardedAd _rewardedAd;
         private bool _first;
