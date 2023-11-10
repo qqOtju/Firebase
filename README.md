@@ -1,10 +1,7 @@
 # Firebase
-Firebase test
-Посилання [клік](https://play.google.com/store/apps/details?id=com.simplegames.firebase).  
+Google Play Page [[click](https://play.google.com/store/apps/details?id=com.simplegames.firebase)].  
 
-Успішна спроба інтегрувати аутентифікацію GPGS, Firebase та Firestore, AdMob.
-
-У "грі" застосовуєтсья:
+The game uses:
 * GPGS Authentication;
 * GPGS Leaderboard;
 * Firebase Authentication;
